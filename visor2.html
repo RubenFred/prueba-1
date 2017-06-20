@@ -8,6 +8,9 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.12/OpenLayers.min.js"></script>
 
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAWGV-uEDtw1I-Oo3jOEaWhd9rTifR_0VE &callback=initMap"
+  type="text/javascript"></script>
+
 <style type="text/css">
 	html, body {
 	height: 100%;
@@ -53,7 +56,14 @@
 		var layerOSM = new OpenLayers.Layer.OSM();
 
 		   // add la capa
-		map.addLayer(layerOSM);   
+		//map.addLayer(layerOSM);  
+
+			// Capa Google
+		var layerGoogleSatelital = new OpenLayers.Layer.Google("Google Satelital",{type:google.maps.MapTypeId.SATELLITE});
+		map.addLayer(layerGoogleSatelital);
+
+
+
 	}
 
 	// cargamos la funcion init, para desplegar el mapa
