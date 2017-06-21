@@ -12,6 +12,9 @@
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAWGV-uEDtw1I-Oo3jOEaWhd9rTifR_0VE &callback=initMap"
   type="text/javascript"></script>
 
+
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js"></script>
+
 <style type="text/css">
 	html, body {
 	height: 100%;
@@ -70,6 +73,10 @@
 			var controlCapas = new OpenLayers.Control.LayerSwitcher();
 			map.addControl(controlCapas);
 
+
+			// capa stamen
+			var layerStamen = new OpenLayers.Layer.Stamen("toner");
+			map.addLayer(layerStamen);
 
 
 
