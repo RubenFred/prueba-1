@@ -111,6 +111,23 @@
 			);
 			map.addLayer(layerMunicipios);
 
+			// Layer  GEOJSON
+			var layerJson = new OpenLayers.Layer.Vector(
+				"Capa Uyuni-json",
+				{
+					projection: new OpenLayers.Projection("EPSG:4326"),
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+						url: './salar_uyuni.json',
+						format: new OpenLayers.Format.GeoJSON()
+					})
+				}
+			);
+			map.addLayer(layerJson);
+
+
+
+
 
 			
 			// Control de cambio de Capas
