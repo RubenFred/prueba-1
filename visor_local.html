@@ -100,6 +100,18 @@
 			var layerDepartamentosWMS = new OpenLayers.Layer.WMS(nombreWMS, urlWMS, propiedadesWMS);
 			map.addLayer(layerDepartamentosWMS);
 
+			// Layer WMS desde geoserver Local
+			var layerMunicipios = new OpenLayers.Layer.WMS(
+				"Mapa de Municipios",
+				"http://192.168.56.101:8080/geoserver/wms",
+				{
+					layers: 'curso-sig:municipios_bolivia',
+					transparent: true
+				}
+			);
+			map.addLayer(layerMunicipios);
+
+
 			
 			// Control de cambio de Capas
 			var controlCapas = new OpenLayers.Control.LayerSwitcher();
