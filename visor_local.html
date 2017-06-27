@@ -94,22 +94,27 @@
 			var nombreWMS = "Límites departamentales";
 			var urlWMS = "http://geo.gob.bo/geoserver/wms";
 			var propiedadesWMS = {
-				                   layers:'universidades:id_aymara' ,  //   'fondos:departamento1'
+				                   layers:'fondos:departamento1' ,  //   'universidades:id_aymara'
 				                   transparent: true
 			                     };
+			                     
 			var layerDepartamentosWMS = new OpenLayers.Layer.WMS(nombreWMS, urlWMS, propiedadesWMS);
+			layerDepartamentosWMS.setVisibility(false);
 			map.addLayer(layerDepartamentosWMS);
+
+
 
 			// Layer WMS desde geoserver Local
 			var layerMunicipios = new OpenLayers.Layer.WMS(
 				"Mapa de Municipios",
-				"http://192.168.56.101:8080/geoserver/wms",
+				"http://192.168.42.33:8080/geoserver/wms",
 				{
 					layers: 'curso-sig:municipios_bolivia',
 					transparent: true
 				}
 			);
 			map.addLayer(layerMunicipios);
+			layerMunicipios.setVisibility(false);
 
 			// Layer  GEOJSON
 			var layerJson = new OpenLayers.Layer.Vector(
@@ -124,8 +129,20 @@
 				}
 			);
 			map.addLayer(layerJson);
+			layerJson.setVisibility(false);
 
-
+			// Capa Presas 2010  
+			var layerPresas = new OpenLayers.Layer.WMS(
+				"Mapa de Represas",
+				"http://192.168.42.33:8080/geoserver/wms",
+				{
+					layers: 'curso-sig:Presas2010',
+					transparent: true
+				}
+			);
+			layerPresas.setVisibility(false);
+			map.addLayer(layerPresas);
+			
 
 
 
