@@ -148,8 +148,10 @@
 				queryVisible: true,              //  cuando este visible la capa  click->mostrar informacion
 				eventListeners: {
 				getfeatureinfo: function (event){
-					alert(event.xy);
-					
+						
+						var info = document.getElementById("informacion");   // enlazando al contenedor en info
+						info.innerHTML = event.text;                         // cargando el valor del punto
+					    
 					}
 				}
 			});
