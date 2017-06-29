@@ -153,8 +153,18 @@
 				eventListeners: {
 				getfeatureinfo: function (event){
 						
-						var info = document.getElementById("informacion");   // enlazando al contenedor en info
-						info.innerHTML = event.text;                         // cargando el valor del punto
+						var popup = new OpenLayers.Popup.FramedCloud(
+							'Popup',
+							map.getLonLatFromPixel(event.xy),
+							null,
+							event.text,
+							null,
+							true
+						);
+						map.addPopup(popup);
+
+						//var info = document.getElementById("informacion");   // enlazando al contenedor en info
+						//info.innerHTML = event.text;                         // cargando el valor del punto
 					    
 					}
 				}
