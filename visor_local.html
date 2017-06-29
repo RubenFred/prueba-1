@@ -143,7 +143,18 @@
 			layerPresas.setVisibility(false);
 			map.addLayer(layerPresas);
 			
-
+			// control para desplegar informacion de capas OJOJO
+			var	controlInfo = new OpenLayers.Control.WMSGetFeatureInfo({
+				queryVisible: true,              //  cuando este visible la capa  click->mostrar informacion
+				eventListeners: {
+				getfeatureinfo: function (event){
+					alert(event.xy);
+					
+					}
+				}
+			});
+			map.addLayer(controlInfo);
+			controlInfo.activate();          // activando el control
 
 
 			
